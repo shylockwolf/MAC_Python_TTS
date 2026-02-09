@@ -28,7 +28,7 @@ MAC_Python_TTS/
 2. 安装所需依赖：
 
 ```bash
-pip install numpy onnxruntime sounddevice soundfile
+pip install numpy onnxruntime sounddevice soundfile requests python-dotenv
 ```
 
 ## 模型下载
@@ -41,17 +41,37 @@ python download_model.py
 
 ## 使用方法
 
-### 基本使用
+### 图形界面使用
+
+1. 运行应用程序：
 
 ```bash
-python tts_app.py --text "你好，这是一个测试" --output output.wav
+python tts_app.py
 ```
 
-### 从文件读取文本
+2. 在界面中选择 TTS 模式：
+   - **Local Model**：使用本地安装的模型
+   - **NVIDIA Magpie API**：使用 NVIDIA 的云端 TTS API
 
-```bash
-python tts_app.py --input test_input.txt --output output.wav
+3. 根据选择的模式进行配置：
+   - **Local Model**：从下拉菜单中选择本地语音模型
+   - **NVIDIA Magpie API**：从下拉菜单中选择 API 语音模型
+
+4. 点击 "Browse..." 按钮选择包含文本的 .txt 文件
+
+5. 点击 "Generate Audio" 按钮生成音频文件
+
+### NVIDIA Magpie API 配置
+
+1. 从 [NVIDIA Build](https://build.nvidia.com/nvidia/magpie-tts-multilingual) 获取 API 密钥
+
+2. 编辑 `.env` 文件，添加你的 API 密钥：
+
+```env
+NVIDIA_API_KEY=your_api_key_here
 ```
+
+3. 保存文件并重新运行应用程序
 
 ## 支持的模型
 
