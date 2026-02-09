@@ -1,0 +1,5 @@
+# Ignore all WAV files
+*.wav
+
+# Ignore models directory
+models/
